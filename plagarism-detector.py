@@ -91,3 +91,18 @@ elif score > 50:
 else:
     print("✅ Low similarity.")
 
+#exporting results to CSV
+def export_csv(common):
+    output_file = 'plagiarism_results.csv'
+    with open(output_file, 'w', newline='') as csvfile:
+        fieldnames = ['Word', 'Essay1 Count', 'Essay2 Count']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    
+        writer.writeheader()
+        for word, counts in common.items():
+            writer.writerow({
+                'Word': word, 
+                'Essay1 Count': counts[0], 
+                'Essay2 Count': counts[1]})
+common = common_words(freq1, freq2)
+export_csv(common)
