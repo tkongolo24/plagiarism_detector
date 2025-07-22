@@ -81,15 +81,8 @@ common = common_words(freq1, freq2)
 score = plagiarism_score(common, total_words1, total_words2)
 
 # Result
-print(f"\nPlagiarism Score: {score}%")
+#print(f"\nPlagiarism Score: {score}%")
 
-# Plagiarism level indicator
-if score > 80:
-    print("⚠️ High similarity detected.")
-elif score > 50:
-    print("⚠️ Moderate similarity.")
-else:
-    print("✅ Low similarity.")
 
 #exporting results to CSV
 def export_csv(common):
@@ -105,4 +98,34 @@ def export_csv(common):
                 'Essay1 Count': counts[0], 
                 'Essay2 Count': counts[1]})
 common = common_words(freq1, freq2)
+total_words1 = sum(freq1.values())
+total_words2 = sum(freq2.values())
+score = plagiarism_score(common, total_words1, total_words2)
 export_csv(common)
+
+#CLI interaction
+def main_menu():
+    while True:
+        print("\nPlagiarism Detector Menu:")
+        print("1. Show plagiarism score ")
+        print("2. Search for a word")
+        print("3. Export CSV")
+        print("4. Exit")
+        choice = input("Enter your choice: ")
+        if choice == '1':
+            print(f"\nPlagiarism Score: {score}%")
+            if score > 50:
+                print("Plagiarism detected.")
+            else:
+                print("No plagiarism detected.")
+        elif choice == '2':
+            search_word(freq1, freq2)   
+        elif choice == '3':
+            export_csv(common)
+            print("Results exported to plagiarism_results.csv") 
+        elif choice == '4':
+            print("Exiting your Plagiarism Detector.")
+            break
+
+if __name__ == "__main__":
+    main_menu()
