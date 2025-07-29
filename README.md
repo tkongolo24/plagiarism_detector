@@ -3,7 +3,17 @@
 A simple command-line Python application that compares two essays and detects word-level similarities to estimate potential plagiarism.
 
 ---
+##  Features
 
+- ✅ Preprocesses essays (removes punctuation, lowercase conversion)  
+- ✅ Calculates word frequency for each essay  
+- ✅ Detects and displays common words between the two essays  
+- ✅ Computes a **plagiarism score** based on shared word usage  
+- ✅ Allows users to:
+  - Search how many times a word appears in each essay  
+  - Export common words to a CSV file  
+  - View similarity levels (Low/None, High)
+---
 
 
 ##  Requirements
