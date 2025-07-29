@@ -23,15 +23,7 @@ A simple command-line Python application that compares two essays and detects wo
 
 ---
 
-##  Project Structure
 
-```
-plagiarism-detector/
-│
-├── essay-1.txt               # First essay to compare
-├── essay-2.txt               # Second essay to compare
-├── plagiarism_results.csv    # Auto-generated CSV of common words
-└── plagiarism_detector.py    # Main Python script
 ```
 
 ---
